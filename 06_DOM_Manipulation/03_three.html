@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai Aur Code</title>
+    <style>
+        .bg-color {
+            background: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="bg-color">
+    <h1>Mangesh Mali</h1>
+</body>
+<script>
+    console.log("Mangesh")
+    const div = document.createElement('div')
+    console.log(div);
+    div.className = "Main"
+    div.id = Math.round(Math.random() * 10 + 1)
+
+    // this setattribute diddn't fetch the value directly set the value as title 
+    // so this requires only one round trip i.e. one clock cycle 
+    div.setAttribute("title", "Chai aur code")
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+
+    // only giving attribute and styling not reflect to the page we have to attach it 
+    // attaching is done as follows 
+
+    // .innertext first fetch the value and then overwrite the new value over previous value
+    // so this requires two round trips for execution i.e. two clock cycles 
+    div.innerText="Mangesh Ishwara Mali"
+    const addtext = document.createTextNode("Chai aur mangesh")
+    div.appendChild(addtext)
+
+    document.body.appendChild(div)
+    
+</script>
+
+</html>
