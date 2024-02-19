@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code</title>
+</head>
+
+<body>
+    <h1>Chai Aur Mangesh</h1>
+    <button id="stop">Stop</button>    
+    <button id="start">Start</button>
+
+</body>
+<script>
+
+    let intervalid;
+    const startint = function(){
+        intervalid = setInterval(printname,1000)
+        function printname(){
+            console.log("Mangesh Mali");
+        }
+    }
+
+    const stopint = function(){
+        clearInterval(intervalid)
+        intervalid=null;
+    };
+    document.querySelector('#start').addEventListener('click', startint)
+    document.querySelector('#stop').addEventListener('click', stopint)
+
+
+
+
+</script>
+
+</html>

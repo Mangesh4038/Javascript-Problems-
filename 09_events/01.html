@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+    <style>
+        .bg-color
+        {
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-color">
+    <ul id="images">
+        <li id="one"><img src="C:\Users\MANGESH\Pictures\Screenshots" alt="one"></li>
+        <li id="two"><img src="C:\Users\MANGESH\Pictures\Screenshots" alt="two"></li>
+        <li id="three"><img src="C:\Users\MANGESH\Pictures\Screenshots" alt="three"></li>
+        <li id="four"><img src="C:\Users\MANGESH\Pictures\Screenshots" alt="four"></li>
+        <li id="five"><img src="C:\Users\MANGESH\Pictures\Screenshots" alt="five"></li>
+    </ul>
+    
+</body>
+<script>
+    // document.getElementById("one").onclick=function(){
+    //     alert("image one clicked");
+    // }
+
+    // attach event
+    // JQuery oneventlisteners
+    // there are multiple methods two add event listeners but best approach is next one 
+    // document.getElementById("one").addEventListener('click',function(){
+    //     alert("one clicked again")
+    // },false)
+
+
+    // type, timestamp, defaultprevented
+    // target, toelement, source element, current target
+    // clientx, clienty, screenx, screeny
+    // altkey, ctrlkey, shiftkey, keycode
+
+    document.getElementById("one").addEventListener('click',function(o){
+        console.log(o) 
+    })
+
+
+    // default/false means :->>>>> bubbling small to big i.e. image -> li -> ul
+    // true means :->>>>> capturing big to small i.e. ul -> li -> image
+
+    // document.getElementById("images").addEventListener('click',function(e){
+    //     alert("clicked inside the ul")
+    // },false)
+    
+    // document.getElementById("one").addEventListener('click',function(e){
+    //     alert("one clicked again")
+    //     e.stopPropagation()
+    // },false)
+
+    // document.getElementById("one").addEventListener('click',function(e){
+    //     e.preventDefault()
+    //     console.log("clicked inside the one one click")
+    // },false)
+
+
+    // it removes parentnode 
+    // one drwback  is  that if we click on list the whole list will get removed 
+
+    // document.querySelector("#images").addEventListener('click',function(e){
+    //     console.log(e.target.parentNode);
+    //     let removeIt = e.target.parentNode        
+    //     removeIt.remove()
+    // })
+    
+
+    // this another approach to remove elements
+    // removeIt.parentNode.removeChild(removeIt)
+
+
+    // to get overcome from above drawback  we can use tagname method instead of parentnode method
+    document.querySelector("#images").addEventListener('click',function(e){
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG')
+        {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode        
+            removeIt.remove() 
+        }
+    })
+</script>
+</html>
